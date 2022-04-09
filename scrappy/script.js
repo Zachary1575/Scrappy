@@ -51,7 +51,39 @@ function Scrape_tag(list, html_id, tag, $) {
     }
 
     return list;
-}
+};
+
+//Scrape a custom inputs
+function Scrape_custom(list, html_id, tag, attr, $){
+    /*
+    if (attr != undefined) {
+        Scrape(list, html_id, tag, attr, $);
+    } else {
+        Scrape_tag(list, html_id,tag,$);
+    }
+    */
+
+    //Cheerio Scraping 
+    $('' + tag).each((index, elem)=>{
+
+        if (typeof(elem) != Object) list.push($(elem).text());
+
+    });
+
+    //If list is empty
+    console.log(html_id);
+    if (list.length == 0) document.getElementById("" + html_id).innerHTML += "Nothing here :(";
+
+    //Set with HTML to see whats happening, added list support
+    for (i = 0; i < list.length; i++)
+    {
+        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + "]: " + list[i];
+        document.getElementById("" + html_id).innerHTML += "\n";
+    }
+
+    return list;
+
+};
 
 
 //Required Library needs a module loader as node cannot run client-side only! (You will get require undefined errors, use a module packager like Browserify). 
@@ -61,10 +93,68 @@ const axios = require('axios');
 //Wait for DOM Contents to be Loaded before, button will be null if it isnt waited
 document.addEventListener("DOMContentLoaded", ()=> {
 
+/*SCRAPPING SEARCH ELEMENTS */
+
+document.getElementById("scrap__button_search").addEventListener("click", function(){
+
+    //Clear Textbox Incase of Https failure
+    document.getElementById("search_result").innerHTML = "";
+
+    console.log("Pass 1");
+
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        var url = tabs[0].url;
+        document.getElementById("url_search").innerHTML = url;
+        console.log("Pass 2");
+
+        var URL = document.getElementById("url_search").innerHTML;
+        var Search = document.getElementById("search_input").value;
+        console.log("Pass 3");
+
+        if (URL == undefined) {
+            document.getElementById("url").innerHTML = "URL Could not be loaded!"
+        } else if (Search == undefined)
+        {
+            document.getElementById("search_result").innerHTML = "Invalid Search Input!"
+        }
+        else 
+        {
+
+            console.log("Pass 4");
+            document.getElementById("search_result").innerHTML = "Scrapping...";
+            axios.get('' + URL).then((response) => {
+                console.log("Pass 5");
+
+                //Clear Textbox
+                document.getElementById("search_result").innerHTML = "";
+
+                if(response.status === 200) {
+                let html = response.data;
+            
+                var $ = cheerio.load(html); 
+            
+                /*CUSTOM SEARCH*/
+                list_Custom = []
+                Scrape_custom(list_Custom, "search_result", '' + Search, '', $);
+                //Scrape_tag(list_Custom, "search_result", '' + Search, $);
+            }
+            }, (error) => {console.log(error) });
+
+        }
 
 
-//Scrap Common Elements, core functionality
+    });//chrome.query
+
+
+
+}); //Event Listener Button, "scrap__button_search"
+
+
+
+
+/* SCRAPPING COMMON ELEMENTS */
 document.getElementById("scrap__button_common").addEventListener("click", function(){
+
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         var url = tabs[0].url;
         document.getElementById("url").innerHTML = url;
@@ -74,16 +164,24 @@ document.getElementById("scrap__button_common").addEventListener("click", functi
 //var URL = "https://google.com"
 var URL = document.getElementById("url").innerHTML;
 
+//Don't want to fire axios when there are errors.
+if (URL == undefined) {
+    document.getElementById("url").innerHTML = "URL Could not be loaded!"
+} 
+else 
+{
 //Background page gets HTML Content from user's current tab
 axios.get('' + URL).then((response) => {
 
     if(response.status === 200) {
     let html = response.data;
+    
+    console.log("Http recieved, now loading into Cheerrio")
 
     var $ = cheerio.load(html); 
 
     /*LINKS*/
-
+    
     //href from 'a' tags
     let list_a_href =[];
     //Execute Scrape
@@ -102,21 +200,22 @@ axios.get('' + URL).then((response) => {
 
     let list_hr =[];
     Scrape_tag(list_hr, "hr", 'h1, h2, h3, h4, h5, h6', $);
+
+    let list_all =[];
+    console.log(list_all);
+    Scrape_tag(list_all, "all", '.cf-course-title', $);
 }
 }, (error) => {console.log(error) });
 
+}
 
-//Chrome.query
-    });
-
-//Event Listener Button, "scrap_common_button"
-});
+    }); //Chrome.query
 
 
+}); //Event Listener Button, "scrap_common_button"
 
 
-//DOM Loading
-});
+}); //DOM Loading
 
 
 

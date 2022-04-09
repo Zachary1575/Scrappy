@@ -30,21 +30,46 @@
                     <br>
                 </p>
 
+                <hr class="text-breaker">
+
                 <h3 class="intro_Header"><img src="./public/mag.png"></img>  Search:</h3>
 
                 <p class="intro">
                     This is to scrape HTML objects and text based on your search criteria! 
                     <br>
-                    Use the textboxs to fill out what you want to find. Here are given examples:
+                    The HTML Parser is very similar to JQuery Syntax.
                     <br>
-                    LOL!
+                    Use the textboxs to fill out what you want to find. 
+                    <br>
+                    Here are given examples (without the quotation):
+                    <br>
+                    <br>
+                    <span class="sub_Section">Finding a tag:</span>
+                    <br>
+                    Ex.) "p", "br", "h1", "h2", "h3", etc...
+                    <br>
+                    <br>
+                    <span class="sub_Section">Finding a certain class:</span>
+                    <br>
+                    Ex.) ".my-class-name", ".findMeThisClass", etc...
+                    <br>
+                    <br>
+                    <span class="sub_Section">Finding attributes in a tag:</span>
+                    <br>
+                    <br>
+                    <span class="sub_Section">Finding a innerHTML element:</span>
                     <br>
                     <br>
                 </p>
 
+                <hr class="text-breaker">
+
                 <h3 class="intro_Header"><img src="./public/html.png"></img>  Common Elements:</h3>
 
                 <p class="intro">
+                    ***Scrapping May take time due to multiple HTML Elements for longer webpages! ***
+                    <br>
+                    <br>
                     This is to scrape HTML objects that are commonly found amongst webpages. Here is a rundown list of all 
                     the tags and their attributes that we can examine:
                     <br>
@@ -68,6 +93,8 @@
                     Navigate to the Common Elements and hit "Scrap!" to scrap the current URL that your DOM is focusing on (i.e the tab you are on)!
                 </p>
 
+                <hr class="text-breaker">
+
                 <h3 class="intro_Header"><img src="./public/api.png"></img>  API:</h3>
 
                 <p class="intro">
@@ -75,6 +102,8 @@
                     <br>
                     <br>
                 </p>
+
+                <hr class="text-breaker">
 
                 <h3 class="intro_Header"><img src="./public/file.png"></img>  About:</h3>
 
@@ -86,41 +115,32 @@
 
             </div>
 
+            <!--Search for a Specific Element-->
             <div class="tabs__content" data-tab="2">
                 <h2>Search  <img src="./public/mag.png"></img></h2>
 
-                <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                    adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
-                    fugiat quo voluptas nulla pariatur?"
-                </p>
+                <p id="url_search">Hit "Scrap!" to scrape a URL!</p>                
+                <button type="button" id="scrap__button_search" class="btn btn-dark">Scrap!</button>
+                <input class="form-control" type="text" placeholder="Tags, words, anything..." id="search_input">
 
-                <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                    adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
-                    fugiat quo voluptas nulla pariatur?"
-                </p>
-
+                <div class="comm_Container">
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">Search Results</label>
+                        <textarea class="form-control" id="search_result" rows="3" readonly></textarea>
+                    </div>
+                </div>
             </div>
 
+
+            <!--Common Elements-->
             <div class="tabs__content" data-tab="3">
                 <h2>Common Elements  <img src="./public/html.png"></img></h2>
                 <p id="url">Hit "Scrap!" to scrape a URL!</p>
                 
                 <div id="comm_Buttons">
                     <button type="button" id="scrap__button_common" class="btn btn-dark">Scrap!</button>
-                    <a class="btn btn-light" href="#comm_Link">Links</a>
-                    <a class="btn btn-light" href="#comm_Text">Text</a>
+                    <a id="link_btn" class="btn btn-light" href="#comm_Link">Links</a>
+                    <a id="text_btn" class="btn btn-light" href="#comm_Text">Text</a>
                 </div>
                 
 
@@ -158,6 +178,11 @@
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1" class="comm_label">[h1, h2, h3, h4, h5, h6] tags</label>
                         <textarea class="form-control" id="hr" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">All ("*") </label>
+                        <textarea class="form-control" id="all" rows="3" readonly></textarea>
                     </div>
 
                 </div>

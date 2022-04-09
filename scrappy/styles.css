@@ -81,6 +81,10 @@
     font-weight: 300;
 }
 
+#url_search {
+    font-weight: 300;
+}
+
 #scrap__button_common {
     margin-bottom: 10px;
 }
@@ -136,4 +140,26 @@
 
 #comm_Buttons {
     display: flex;
+}
+
+#search_input {
+    height: 35px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.text-breaker {
+    width: 40%;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+#link_btn {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#text_btn {
+    margin-left: 10px;
+    margin-right: 10px;
 }

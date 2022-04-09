@@ -1,0 +1,22 @@
+{
+  "name": "extension_crawler",
+  "version": "1.0.0",
+  "description": "html, css, JS, Node",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "HTML",
+    "CSS",
+    "JS",
+    "Node"
+  ],
+  "author": "Me",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cheerio": "^1.0.0-rc.10",
+    "request": "^2.88.2"
+  }
+}

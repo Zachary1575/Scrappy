@@ -1,0 +1,139 @@
+/*FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+
+
+/* Core CSS */
+.Container{
+    width: 783px;
+}
+
+.comm_label {
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}
+
+.comm_Container {
+    width: 580px;
+    display: flex;
+    flex-direction: column;
+}
+
+/*TABS CSS */
+
+.tabs {
+    display: flex;
+}
+
+.tabs__sidebar {
+    width: 170px;
+    flex-shrink: 0;
+    background: #313a46;
+}
+
+.tabs__button {
+    display: block;
+    color: #fff;
+    padding: 10px;
+    background: #313a46;
+    border: none;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+}
+
+.tabs__button:active {
+    background: #fff;
+}
+
+.tabs__button:hover {
+    color: #bccee4;
+    transition: 0.3s;
+}
+
+.tabs__button:not(:last-of-type) {
+    border-bottom: 1px solid #313a46;
+}
+
+.tabs__button--active {
+    background: #313a46;
+}
+
+.tabs__content {
+    padding: 15px;
+    font-size: 0.8rem;
+    display: none;
+}
+
+.tabs__content--active {
+    display: block;
+}
+
+.tabs__content > :first-child {
+    margin-top: 0;
+}
+
+/*OTHER CSS */
+#url {
+    font-weight: 300;
+}
+
+#scrap__button_common {
+    margin-bottom: 10px;
+}
+
+#Author {
+    background-color: white;
+    color: #98a6ad;
+    padding-top: 5px;
+    margin-bottom: 0px;
+}
+
+.welcome {
+    margin-bottom: 20px;
+}
+
+#title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 23px;
+}
+
+.intro_start {
+    font-size: 15px;
+}
+
+.intro_Header {
+    font-size: 23px;
+}
+
+.intro {
+    font-size: 15px;
+}
+
+.text {
+    font-size: 15px;
+}
+
+.common_Title {
+    font-size: 20px;
+}
+
+#welcome_Scrappy {
+    font-family: 'Dancing Script', cursive;
+    font-weight: 800;
+}
+
+.form-control {
+    height: 400px;
+}
+
+.sub_Section {
+    font-weight: 500;
+}
+
+#comm_Buttons {
+    display: flex;
+}

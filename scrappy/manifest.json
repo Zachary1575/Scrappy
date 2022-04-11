@@ -13,7 +13,7 @@
     "content_scripts": [{
 
         "matches":["<all_urls>"],
-        "js": ["main.js"],
+        "js": ["main.js", "script.js"],
         "run_at": "document_end"
     }],
 

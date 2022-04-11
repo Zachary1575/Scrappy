@@ -33,3 +33,6 @@ document.addEventListener("DOMContentLoaded", ()=> {
         tabsContainer.querySelector(".tabs__sidebar .tabs__button").click();
     })
 });
+
+var all = document.getElementsByTagName("*");
+console.log(all);

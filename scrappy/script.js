@@ -46,43 +46,11 @@ function Scrape_tag(list, html_id, tag, $) {
     //Set with HTML to see whats happening, added list support
     for (i = 0; i < list.length; i++)
     {
-        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + "]: " + list[i];
+        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + " Type: " + typeof(list[i]) + "]: " + list[i];
         document.getElementById("" + html_id).innerHTML += "\n";
     }
 
     return list;
-};
-
-//Scrape a custom inputs
-function Scrape_custom(list, html_id, tag, attr, $){
-    /*
-    if (attr != undefined) {
-        Scrape(list, html_id, tag, attr, $);
-    } else {
-        Scrape_tag(list, html_id,tag,$);
-    }
-    */
-
-    //Cheerio Scraping 
-    $('' + tag).each((index, elem)=>{
-
-        if (typeof(elem) != Object) list.push($(elem).text());
-
-    });
-
-    //If list is empty
-    console.log(html_id);
-    if (list.length == 0) document.getElementById("" + html_id).innerHTML += "Nothing here :(";
-
-    //Set with HTML to see whats happening, added list support
-    for (i = 0; i < list.length; i++)
-    {
-        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + "]: " + list[i];
-        document.getElementById("" + html_id).innerHTML += "\n";
-    }
-
-    return list;
-
 };
 
 
@@ -103,12 +71,14 @@ document.getElementById("scrap__button_search").addEventListener("click", functi
     console.log("Pass 1");
 
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+        console.log(tabs[0])
         var url = tabs[0].url;
         document.getElementById("url_search").innerHTML = url;
         console.log("Pass 2");
 
         var URL = document.getElementById("url_search").innerHTML;
         var Search = document.getElementById("search_input").value;
+        if (document.getElementById("attr_input").value != null) var attr = document.getElementById("attr_input").value;
         console.log("Pass 3");
 
         if (URL == undefined) {
@@ -135,7 +105,16 @@ document.getElementById("scrap__button_search").addEventListener("click", functi
             
                 /*CUSTOM SEARCH*/
                 list_Custom = []
-                Scrape_custom(list_Custom, "search_result", '' + Search, '', $);
+
+                if (Search != "" && attr != "")
+                {
+                    Scrape(list_Custom, "search_result", '' + Search, attr, $);
+                } else
+                {
+                    Scrape_tag(list_Custom, "search_result", '' + Search, $);
+                }
+
+                
                 //Scrape_tag(list_Custom, "search_result", '' + Search, $);
             }
             }, (error) => {console.log(error) });

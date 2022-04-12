@@ -157,11 +157,12 @@
 #link_btn {
     margin-left: 10px;
     margin-right: 10px;
+    height: 38px;
 }
 
 #text_btn {
-    margin-left: 10px;
     margin-right: 10px;
+    height: 38px;
 }
 
 #attr_input {

@@ -57,6 +57,7 @@ function Scrape_tag(list, html_id, tag, $) {
 //Required Library needs a module loader as node cannot run client-side only! (You will get require undefined errors, use a module packager like Browserify). 
 const cheerio = require('cheerio');
 const axios = require('axios');
+const puppet = require('puppeteer-core');
 
 //Wait for DOM Contents to be Loaded before, button will be null if it isnt waited
 document.addEventListener("DOMContentLoaded", ()=> {

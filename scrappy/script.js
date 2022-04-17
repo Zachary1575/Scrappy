@@ -3,6 +3,7 @@ SOURCE CODE SCRIPT - This is the source code script before converting it into a 
 Module was created since this script uses libraries and dependencies from node.js.
 
 Made by Me
+
 */
 
 
@@ -57,7 +58,6 @@ function Scrape_tag(list, html_id, tag, $) {
 //Required Library needs a module loader as node cannot run client-side only! (You will get require undefined errors, use a module packager like Browserify). 
 const cheerio = require('cheerio');
 const axios = require('axios');
-const puppet = require('puppeteer-core');
 
 //Wait for DOM Contents to be Loaded before, button will be null if it isnt waited
 document.addEventListener("DOMContentLoaded", ()=> {
@@ -69,18 +69,15 @@ document.getElementById("scrap__button_search").addEventListener("click", functi
     //Clear Textbox Incase of Https failure
     document.getElementById("search_result").innerHTML = "";
 
-    console.log("Pass 1");
-
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
         console.log(tabs[0])
         var url = tabs[0].url;
         document.getElementById("url_search").innerHTML = url;
-        console.log("Pass 2");
+
 
         var URL = document.getElementById("url_search").innerHTML;
         var Search = document.getElementById("search_input").value;
         if (document.getElementById("attr_input").value != null) var attr = document.getElementById("attr_input").value;
-        console.log("Pass 3");
 
         if (URL == undefined) {
             document.getElementById("url").innerHTML = "URL Could not be loaded!"
@@ -91,10 +88,8 @@ document.getElementById("scrap__button_search").addEventListener("click", functi
         else 
         {
 
-            console.log("Pass 4");
             document.getElementById("search_result").innerHTML = "Scrapping...";
             axios.get('' + URL).then((response) => {
-                console.log("Pass 5");
 
                 //Clear Textbox
                 document.getElementById("search_result").innerHTML = "";
@@ -195,7 +190,11 @@ axios.get('' + URL).then((response) => {
 }); //Event Listener Button, "scrap_common_button"
 
 
-}); //DOM Loading
+}); //DOM Loader
+
+
+
+
 
 
 

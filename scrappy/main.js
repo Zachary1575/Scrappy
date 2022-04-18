@@ -22241,6 +22241,7 @@ SOURCE CODE SCRIPT - This is the source code script before converting it into a 
 Module was created since this script uses libraries and dependencies from node.js.
 
 Made by Me
+
 */
 
 
@@ -22284,7 +22285,7 @@ function Scrape_tag(list, html_id, tag, $) {
     //Set with HTML to see whats happening, added list support
     for (i = 0; i < list.length; i++)
     {
-        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + " Type: " + typeof(list[i]) + "]: " + list[i];
+        document.getElementById("" + html_id).innerHTML += "[" + (i + 1) + "]: " + list[i];
         document.getElementById("" + html_id).innerHTML += "\n";
     }
 
@@ -22413,9 +22414,13 @@ axios.get('' + URL).then((response) => {
     let list_hr =[];
     Scrape_tag(list_hr, "hr", 'h1, h2, h3, h4, h5, h6', $);
 
-    let list_all =[];
-    console.log(list_all);
-    Scrape_tag(list_all, "all", '.cf-course-title', $);
+    let list_b =[];
+    console.log(list_b);
+    Scrape_tag(list_b, "bold", 'b', $);
+
+    let list_i =[];
+    console.log(list_i);
+    Scrape_tag(list_i, "italic", 'i', $);
 }
 }, (error) => {console.log(error) });
 

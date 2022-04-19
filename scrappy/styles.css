@@ -1,5 +1,6 @@
 /*FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500&display=swap');
 
 
 /* Core CSS */
@@ -176,3 +177,102 @@
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+.image-container {
+    display: flex;
+    height: 400px;
+    width: 580px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.work-image {
+    height: 130px;
+    width: 130px;
+}
+
+.image-text {
+    margin-top: 10px;
+    font-size: 20px;
+    opacity: 0.5;
+}
+
+.large-subtitle {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.extra-info {
+    display: flex;
+    align-items: center;
+}
+
+#github-button {
+    height: 40px;
+    margin-top: 20px;
+
+}
+
+#github-icon {
+    height: 32px;
+    width: 32px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 80px;
+}
+
+#chrome-button {
+    height: 40px;
+    margin-top: 20px;
+
+}
+
+#chrome-icon {
+    height: 32px;
+    width: 32px;
+    margin-top: 20px;
+    margin-right: 10px;
+    margin-left: 30px;
+}
+
+.text-breaker-common {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 40px;
+    margin-top: 60px;
+}
+
+#table_btn {
+    margin-right: 10px;
+    height: 38px;
+}
+
+#list_btn {
+    margin-right: 10px;
+    height: 38px;
+}
+
+#misc_btn {
+    margin-right: 10px;
+    height: 38px;
+}
+
+#btn-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    height:40px;
+    width:40px;
+    border-radius: 50%;
+    display: none;
+  }
+
+  #back-up {
+    bottom: 6px;
+    right: 30.5px;
+    position: fixed;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 25px;
+    font-weight: 300;
+  }

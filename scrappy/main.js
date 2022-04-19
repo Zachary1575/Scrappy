@@ -22240,7 +22240,7 @@ var __createBinding;
 SOURCE CODE SCRIPT - This is the source code script before converting it into a module through Browserify. 
 Module was created since this script uses libraries and dependencies from node.js.
 
-Made by Me
+Made by Zchry
 
 */
 
@@ -22291,6 +22291,8 @@ function Scrape_tag(list, html_id, tag, $) {
 
     return list;
 };
+
+
 
 
 //Required Library needs a module loader as node cannot run client-side only! (You will get require undefined errors, use a module packager like Browserify). 
@@ -22389,7 +22391,10 @@ axios.get('' + URL).then((response) => {
     if(response.status === 200) {
     let html = response.data;
     
-    console.log("Http recieved, now loading into Cheerrio")
+    //Debug Purposes
+    console.log(html);
+
+
 
     var $ = cheerio.load(html); 
 
@@ -22397,7 +22402,6 @@ axios.get('' + URL).then((response) => {
     
     //href from 'a' tags
     let list_a_href =[];
-    //Execute Scrape
     Scrape(list_a_href, "a_hrefs", 'a', 'href', $);
 
     //href from 'links'
@@ -22421,7 +22425,46 @@ axios.get('' + URL).then((response) => {
     let list_i =[];
     console.log(list_i);
     Scrape_tag(list_i, "italic", 'i', $);
-}
+    
+    /*TABLE*/
+    let list_tr =[];
+    console.log(list_tr);
+    Scrape_tag(list_tr, "tr", 'tr', $);
+
+    let list_th =[];
+    console.log(list_th);
+    Scrape_tag(list_th, "th", 'th', $);
+
+    let list_td =[];
+    console.log(list_td );
+    Scrape_tag(list_td , "td", 'td', $);
+
+    /*LIST*/
+    let list_ol =[];
+    console.log(list_ol);
+    Scrape_tag(list_ol, "ol", 'ol', $);
+
+    let list_ul =[];
+    console.log(list_ul);
+    Scrape_tag(list_ul, "ul", 'ul', $);
+
+    let list_li =[];
+    console.log(list_li );
+    Scrape_tag(list_li , "li", 'li', $);
+
+    /*MISCELLANEOUS*/
+    let list_div =[];
+    console.log(list_div);
+    Scrape_tag(list_div, "div", 'div', $);
+
+    let list_img_src =[];
+    Scrape(list_img_src, "img_src", 'img', 'src', $);
+
+    let list_img_alt =[];
+    Scrape(list_img_alt, "img_alt", 'img', 'alt', $);
+
+
+}   
 }, (error) => {console.log(error) });
 
 }
@@ -22432,13 +22475,61 @@ axios.get('' + URL).then((response) => {
 }); //Event Listener Button, "scrap_common_button"
 
 
+
+
+
+/** SCROLL TO TOP BUTTONS **/
+//Get the button
+var mybutton = document.getElementById("btn-back-to-top");
+
+window.onscroll = function () {
+    scrollFunction();
+};
+
+mybutton.addEventListener("click", backToTop);
+
+//Scroll function
+function scrollFunction() {
+    if (
+      document.body.scrollTop > 20 ||
+      document.documentElement.scrollTop > 20
+    ) {
+      mybutton.style.display = "block";
+    } else if (mybutton != null) {
+      mybutton.style.display = "none";
+    }
+}
+
+//Get back to the top of the Document
+function backToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+
+
+
+/** ABOUT BUTTONS **/
+// Github link button
+document.getElementById("github-button").addEventListener("click", function(){ 
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+
+        chrome.tabs.create({url: "https://github.com/Zachary1575/Scrappy"});
+
+    });
+});
+
+//Chrome store link button
+document.getElementById("chrome-button").addEventListener("click", function(){ 
+    chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
+
+        chrome.tabs.create({url: "https://chrome.google.com/webstore/category/extensions"});
+
+    });
+});
+
+
 }); //DOM Loader
-
-
-
-
-
-
 
 /* OTHER */
 

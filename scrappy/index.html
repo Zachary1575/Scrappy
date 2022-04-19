@@ -26,6 +26,8 @@
                 <p class="intro_start">
                     Welcome to Scrappy, the client-sided only web scraper! 
                     <br>
+                    If you have any issues, please read the FAQ section in the about tab!
+                    <br>
                     Here is a quick rundown what each tab does!
                     <br>
                     <br>
@@ -107,6 +109,10 @@
                     <br>
                     3.) [h1, h2, h3, h4, h5, h6]
                     <br>
+                    4.) [b]
+                    <br>
+                    5.) [i]
+                    <br>
                     <br>
                     Navigate to the Common Elements and hit "Scrap!" to scrap the current URL that your DOM is focusing on (i.e the tab you are on)!
                 </p>
@@ -126,7 +132,7 @@
                 <h3 class="intro_Header"><img src="./public/file.png"></img>  About:</h3>
 
                 <p class="intro">
-                    This contains information about all the boring legal stuff, licenses, and Zzzzz...
+                    This contains information about the app. FAQ's and other information in here!
                     <br>
                     <br>
                 </p>
@@ -161,6 +167,9 @@
                     <button type="button" id="scrap__button_common" class="btn btn-dark">Scrap!</button>
                     <a id="link_btn" class="btn btn-light" href="#comm_Link">Links</a>
                     <a id="text_btn" class="btn btn-light" href="#comm_Text">Text</a>
+                    <a id="table_btn" class="btn btn-light" href="#comm_Table">Table</a>
+                    <a id="list_btn" class="btn btn-light" href="#comm_List">List</a>
+                    <a id="misc_btn" class="btn btn-light" href="#comm_Misc">Misc.</a>
                 </div>
                 
                 <!--Links-->
@@ -180,6 +189,8 @@
                     </div>
 
                 </div>
+
+                <hr class="text-breaker-common">
 
                 <!--Text-->
                 <div class="comm_Container">
@@ -213,38 +224,178 @@
 
                 </div>
 
+                <hr class="text-breaker-common">
+
                 <!--Table Elements-->
+                <div class="comm_Container">
+
+                    <h1 class="common_Title" id="comm_Table">Table Elements:</h1>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[tr] tags</label>
+                        <textarea class="form-control" id="tr" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[th] tags</label>
+                        <textarea class="form-control" id="th" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[td] tags</label>
+                        <textarea class="form-control" id="td" rows="3" readonly></textarea>
+                    </div>
+
+                </div>
+
+                <hr class="text-breaker-common">
+
+                <!--List Elements-->
+                <div class="comm_Container">
+                    
+                    <h1 class="common_Title" id="comm_List">List Elements:</h1>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[ul] tags</label>
+                        <textarea class="form-control" id="ul" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[ol] tags</label>
+                        <textarea class="form-control" id="ol" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[li] tags</label>
+                        <textarea class="form-control" id="li" rows="3" readonly></textarea>
+                    </div>
+
+                </div>
+
+                <hr class="text-breaker-common">
+
+                <!--Miscellaneous Elements-->
+                <div class="comm_Container">
+
+                    <h1 class="common_Title" id="comm_Misc">Miscellaneous Elements:</h1>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">[div] tags</label>
+                        <textarea class="form-control" id="div" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">src from [img] tags</label>
+                        <textarea class="form-control" id="img_src" rows="3" readonly></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1" class="comm_label">alt from [img] tags</label>
+                        <textarea class="form-control" id="img_alt" rows="3" readonly></textarea>
+                    </div>
+
+                </div>
+
+                <!--Scroll to top button-->
+                <button type="button" class="btn btn-dark btn-floating btn-lg" id="btn-back-to-top"><p id="back-up">↑</p></button>
 
             </div>
 
+            
+
+            <!--API Support-->
             <div class="tabs__content" data-tab="4">
                 <h2>API  <img src="./public/api.png"></img></h2>
-                <p class="text">
-                    This feature is coming soon!!!!!
-                </p>
-                <img src="./public/sketch.png" style="opacity: 0.2;"></img>
+                <div class="image-container">
+                    <img class="work-image" src="./public/sketch.png" style="opacity: 0.2;"></img>
+                    <p class="image-text">
+                        This feature is coming soon!
+                    </p>
+                </div>
+                
 
             </div>
             
+
+            <!--About Section-->
             <div class="tabs__content" data-tab="5">
                 <h2>About  <img src="./public/file.png"></img></h2>
-                <p>
-                    "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-                    totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. 
-                    Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores 
-                    eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, 
-                    adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. 
-                    Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? 
-                    Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum 
-                    fugiat quo voluptas nulla pariatur?"
-                </p>
+
+                <hr>
+
+                <div>
+                    <h1>FAQ.</h1>
+                </div>
+
+                <hr class="text-breaker">
+
+                <p class="intro">
+                    
+                    <span class="large-subtitle"> How come some of my elements are not showing up?</span>
+                    <br>
+                    <br>
+                    If you checked that your search parameters are correct in terms of JQuery Syntax, then the issue lies in CORS policy.
+                    The Cross-Origin Resource Sharing (CORS) it a HTTP-header mechanism that allows the server to identify the origins. Only selective html content is loaded
+                    due to CORS policy. Sadly, we cannot get around this (like disabeling CORS) The main issue is that the Chrome has CORS's policy enabled on the client, and disabeling will requires to disable web security which violates
+                    Chrome's Terms of Service. Sorry :(
+                    <br>
+                    <br>
+                    
+                    <span class="large-subtitle"> Why are some list elements blank?</span>
+                    <br>
+                    <br>
+                    This is due to either the parser unable to find an innerHTML or your attributes/tags do not exist and JQuery cannot find it.
+                    Try to re-adjust or use inpect element to analyze the proper JQuery. Refer to 
+                    <br>
+                    <br>
+
+                    <span class="large-subtitle"> How is this useful? This seems very simple to me.</span>
+                    <br>
+                    <br>
+                    This is a client-sided webscraper to do quick look-ups and package results into Google Products or .json. Traditionally, you would need
+                    a server to do a heavy webscraper like Puppeteer or Phantom for node.js which uses a headless browser. However, this is designed to be lightweight for quick use. If you would like to 
+                    contribute to add more features, please let me know!
+                    <br>
+                    <br>
+
+                    <span class="large-subtitle"> Why am I recieveing the errors for unable to access: "chrome://..." </span>
+                    <br>
+                    <br>
+                    Due to Chrome's policy in accessing internal addresses, we cannot access such addresses that have "chrome://..." within it.
+                    <br>
+                    <br>
+
+                    <span class="large-subtitle"> When will a search bar be implemented?</span>
+                    <br>
+                    <br> 
+                    This will happen soon! If you would like to contribute, please make any merge requests to the github I left below! Any contributions are welcome!
+
+                    <hr class="text-breaker">
+               </p>
+
+               <div class="extra-info">
+                    <div id="info-text">
+                        <span class="large-subtitle"> Extra Information</span>
+                        <br>
+                        Made by Zchry
+                        <br>
+                        Contributions are welcomed!
+                        <br>
+                        This is an opened-source project.
+                    </div>
+                    <img src="./public/github.png" id="github-icon"></img>
+                    <button type="button" id="github-button" class="btn btn-dark">Github</button>
+                    <img src="./public/chrome.png" id="chrome-icon"></img>
+                    <button type="button" id="chrome-button" class="btn btn-light">Store</button>
+                    
+               </div>
 
             </div>
 
         </div>
 
 
-        <p id="Author">Made by Me</p>
+        <p id="Author">Made by Zchry</p>
         <script src="popup.js"></script>
     </div>
     
